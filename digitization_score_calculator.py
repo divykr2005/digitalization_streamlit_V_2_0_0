@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-import pypdf
+from pypdf import PdfReader
 import re
 import streamlit as st
 
@@ -59,7 +59,7 @@ default_weights = {
 # -------------------- FUNCTIONS --------------------
 def extract_text_from_pdf(pdf_file):
     try:
-        reader = PyPDF2.PdfReader(pdf_file)
+        reader = PdfReader(pdf_file)
         text = ""
         for page in reader.pages:
             text += page.extract_text() or ""
